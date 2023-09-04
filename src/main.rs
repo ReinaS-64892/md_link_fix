@@ -35,11 +35,14 @@ fn main() {
         if link_str.starts_with("http") {
             println!("Http Link: {}", link_str);
         } else {
-            let md_without_lowe = link_str.replace(".md", "")
-            .replace("Manual", "docs")
-            .replace("/JP", "")
-            .replace("/EN", "")
-            .to_lowercase();
+            let mut md_without_lowe = link_str.replace(".md", "");
+            if md_without_lowe.starts_with("Manual") {
+                md_without_lowe = md_without_lowe
+                    .replace("Manual", "")
+                    .replace("/JP/", "")
+                    .replace("/EN/", "");
+            }
+            md_without_lowe = md_without_lowe.to_lowercase();
             let fix_md_link = "../".to_string() + &md_without_lowe;
 
             let mut reprasd_match_str = match_str.to_string();
