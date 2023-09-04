@@ -41,9 +41,11 @@ fn main() {
                     .replace("Manual", "")
                     .replace("/JP/", "")
                     .replace("/EN/", "");
+            }else {
+
+                md_without_lowe = "../".to_owned() + &md_without_lowe;
             }
-            md_without_lowe = md_without_lowe.to_lowercase();
-            let fix_md_link = "../".to_string() + &md_without_lowe;
+            let fix_md_link = md_without_lowe.to_lowercase();
 
             let mut reprasd_match_str = match_str.to_string();
             reprasd_match_str.replace_range(list_str_start..match_str.len() - 1, &fix_md_link);
