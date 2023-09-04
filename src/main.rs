@@ -38,9 +38,9 @@ fn main() {
             let mut md_without_lowe = link_str.replace(".md", "");
             if md_without_lowe.starts_with("Manual") {
                 md_without_lowe = md_without_lowe
-                    .replace("Manual", "")
-                    .replace("/JP/", "")
-                    .replace("/EN/", "");
+                    .replace("Manual", "docs")
+                    .replace("/JP", "")
+                    .replace("/EN", "");
             }else {
 
                 md_without_lowe = "../".to_owned() + &md_without_lowe;
